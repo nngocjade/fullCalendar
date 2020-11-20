@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&family=Titillium+Web&display=swap");
+
+* {
+  font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+  --lighter-accent-color: #f5d8ff83;
+  --accent-color: #eeb9ff;
+  --darker-accent-color: #e39ff8;
+  --green-accent-color: #bfe09c;
+  --darkerGreen-accent-color: #acda7c;
+  --border-color: rgba(168, 64, 182, 0.5);
+  --linear-gradient-light-to-dark: linear-gradient(
+    0deg,
+    rgba(245, 216, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --linear-gradient-dark-to-light: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(245, 216, 255, 1) 100%
+  );
+}
+
+body {
+  font-family: "Titillium Web", sans-serif;
+}
+
+td {
+  border: 1px solid var(--green-accent-color);
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* ========================================================
+                         CALENDAR
+==========================================================*/
+
+.todo-calendar {
+  height: 90%;
+}
+/* 
+.fc .fc-scrollgrid-liquid {
+  height: 90%;
+find this in main.css to adjust height of calendar
+} */
+
+/* ========================================================
+                    END OF CALENDAR
+==========================================================*/
+
+.todo-block {
+  border: 1px solid #a1c878;
+  padding: 1rem;
+  border-radius: 20px;
+  color: #524835;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+/* ========================================================
+                     TODO INPUT
+==========================================================*/
+.todo-input {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 4fr 1.2fr 1.2fr;
+  grid-template-areas:
+    "name name-input"
+    "employee employee-input"
+    "date date-input"
+    "time time-input"
+    "note note-input"
+    "add-button add-button" "sort-button sort-button";
+  row-gap: 1rem;
+}
+
+::placeholder,
+::-webkit-input-placeholder,
+::-ms-input-placeholder {
+  color: rgb(190, 190, 190);
+}
+
+input {
+  color: rgb(190, 190, 190);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+/* ========================================================
+               END OF TODO INPUT
+==========================================================*/
+/* ========================================================
+                         MODAL
+==========================================================*/
+.todo-overlay {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgba(221, 221, 221, 0.514); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  /* transform: translateX(-100vw); */
+  transition: transform 250ms;
+  z-index: 2;
+}
+
+.todo-modal {
+  min-width: 30vw;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.5);
+  border: none;
+  position: relative;
+}
+
+.todo-modal-close-btn {
+  background-color: #f59a8c;
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.5);
+}
+
+/* .slidedIntoView {
+  transform: translateX(0);
+  transition: transform 650ms;
+} */
+/* ========================================================
+                      END OF MODAL
+==========================================================*/
+
+/* ========================================================
+                      TO DO TABLE
+==========================================================*/
+#table-wrapper {
+  margin-top: 1rem;
+  height: 15em;
+}
+
+#table-inner-wrapper {
+  width: 100%;
+  position: relative;
+  height: 0;
+}
+
+#table-scroll {
+  height: 10.8em;
+  overflow: auto;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+#tableHeader {
+  position: absolute;
+  top: -65px;
+  z-index: 2;
+  width: 98%;
+  margin: 1rem 0 0 0;
+  display: table;
+}
+
+.header-text {
+  padding: 5px;
+}
+
+#headerDate {
+  display: table-cell;
+  width: 27%;
+}
+
+#headerTime {
+  display: table-cell;
+  width: 14%;
+}
+
+#headerName {
+  display: table-cell;
+  width: 12%;
+}
+
+#headerEmployee {
+  display: table-cell;
+  width: 25%;
+}
+
+#headerEdit,
+#headerDelete {
+  display: table-cell;
+  width: 13%;
+}
+
+.categoryCell {
+  width: 5rem;
+}
+
+#todoTable {
+  width: 100%;
+  font-size: 0.8rem;
+  height: fit-content;
+  overflow: hidden;
+}
+
+#todoTable tr:nth-child(even) {
+  background-color: #bfe09c;
+}
+
+#categoryFilter {
+  border: none;
+  width: 100%;
+  color: #524835;
+}
+
+/* ========================================================
+              END OF TODO TABLE
+==========================================================*/
+
+/* ========================================================
+                      BUTTON
+==========================================================*/
+button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#addBtn {
+  background-color: var(--green-accent-color);
+}
+
+#addBtn:hover {
+  background-color: var(--darkerGreen-accent-color);
+}
+
+button:active {
+  border: 1px inset #ed5ed5;
+}
+
+button:hover {
+  background-color: var(--darker-accent-color);
+}
+
+#changeBtn {
+  background-color: var(--green-accent-color);
+  color: #524835;
+}
+/* ========================================================
+               END OF BUTTON
+==========================================================*/
+
+/* ========================================================
+                      SCREEN SIZES
+==========================================================*/
+
+@media screen and (max-width: 767px) {
+  /* for mobile or small screen device */
+  #todoTable,
+  .todo-calendar {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* for tablets or laptops or desktops */
+  .todo-grid-parent {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    column-gap: 1rem;
+  }
+
+  #addBtn {
+    grid-area: add-button;
+  }
+
+  #sortBtn {
+    grid-area: sort-button;
+  }
+
+  .todo-input span {
+    display: block;
+    font-size: 0.8rem;
+    text-align: left;
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheduling App</title>
+  <link rel="stylesheet" href="todo.css">
+  <link href="main.css" rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css"> -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
+  <!--
+  <link rel="stylesheet" href="./fullcalendar/main.min.css">
+  <script src="./fullcalendar/main.min.js" defer></script>
+  https://youtu.be/Un5DrBn5gxc
+  -->
+  <script src="updated_todo.js" defer></script>
+</head>
+
+<body>
+  <div class="todo-grid-parent">
+
+    <div>
+      <div class="todo-input todo-block">
+        <span>Name: </span>
+        <input type="text" placeholder="Enter client name">
+        <span>Employee: </span>
+        <input type="text" placeholder="Enter employee name" list="categoryList">
+        <datalist id="categoryList">
+          <!-- <option value="Kathy"></option>
+          <option value="Van"></option> -->
+        </datalist>
+        <span >Date:</span>
+        <input type="date" id="dateInput">
+        <span>Time:</span>
+        <input type="time" id="timeInput">
+        <span>Note:</span>
+        <input type="note" id="noteInput">
+        <span></span>
+        <button id="addBtn">Add Appointment</button>
+        <span></span>
+        <button id="sortBtn">Sort by Date</button>
+      </div>
+
+      <div id="table-wrapper" class=" todo-block">
+        <div id="table-inner-wrapper">
+          <div id="table-scroll">
+            <table id="todoTable">
+              <tr id="tableHeader">
+                <td id="headerDate" class="header-text">Date</td>
+                <td id="headerTime" class="header-text">Time</td>
+                <td id="headerName" class="header-text">Name</td>
+                <td id="headerEmployee" class="header-text">
+                  <select id="categoryFilter">
+                  </select>
+                </td>
+                <td id="headerEdit" class="header-text">Edit</td>
+                <td id="headerDelete" class="header-text">Delete</td>
+              </tr>
+              <!-- EACH APPOINTMENT GETS ADDED HERE -->
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="todo-calendar  todo-block">
+      <div id='calendar'></div>
+    </div>
+
+  </div> <!-- class="todo-grid-parent" -->
+
+  <div class="todo-overlay" id="todo-overlay">
+    <div class="todo-modal" id="todo-modal">
+      <div class="todo-input todo-block">
+        <span>Client Name: </span>
+        <input type="text" placeholder="Enter client name" id="todo-edit-todo">
+        <span>Employee: </span>
+        <input type="text" placeholder="Enter employee name" list="categoryList"  id="todo-edit-category">
+        <datalist id="categoryList">
+          <!-- <option value="Personal"></option>
+          <option value="Work"></option> -->
+        </datalist>
+        <span>Date:</span>
+        <input type="date" id="todo-edit-date">
+        <span>Time:</span>
+        <input type="time" id="todo-edit-time">
+        <span>Note:</span>
+        <input type="note" id="todo-edit-note">
+        <span></span>
+        <button id="changeBtn">Save Change</button>
+      </div>
+      <div class="todo-modal-close-btn" id="todo-modal-close-btn">X</div>
+    </div>
+    
+  </div>
+  
+</body>
+
+</html>
